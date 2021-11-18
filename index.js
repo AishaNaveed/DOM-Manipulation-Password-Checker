@@ -12,7 +12,7 @@ input.addEventListener('keyup', function(event){
     if(input.value !== ''){
         bar.style.display = 'block';
         bar.style.display = 'flex';
-        if(input.value.length <= 8 && input.value.match(regExpWeak) || input.value.match(regExpMed) || input.value.match(regExpStr))
+        if(input.value.length < 8 && input.value.match(regExpWeak) || input.value.match(regExpMed) || input.value.match(regExpStr))
             no=1;
         if((input.value.length >= 8 && input.value.length <= 12) && ((input.value.match(regExpWeak)) && (input.value.match(regExpMed))) || ((input.value.match(regExpMed)) && (input.value.match(regExpStr))) || ((input.value.match(regExpWeak)) && (input.value.match(regExpStr))))
             no=2;
@@ -24,6 +24,26 @@ input.addEventListener('keyup', function(event){
             txt.textContent = 'Should be longer';
             txt.classList.add('weak');
         }
+        if(no == 2){
+            medium.classList.add('active');
+            txt.textContent = 'Pretty good';
+            txt.classList.add('medium');
+        }
+        else{
+            medium.classList.remove('active');
+            txt.classList.remove('medium');
+        }
+        if(no == 3){
+            medium.classList.add('active');
+            strong.classList.add('active');
+            txt.textContent = 'Grrrreat!';
+            txt.classList.add('strong');
+        }
+        else{
+            strong.classList.remove('active');
+            txt.classList.remove('strong');
+        }
+
     }
     else{
         bar.style.display = 'none';
