@@ -22,9 +22,6 @@ body{
     padding: 3em 2em;
     overflow: hidden;
     border: 0.2em solid lightgray;
-}
-
-.container header{
     font-size: 1.5em;
     line-height: 60%;
 }
@@ -67,6 +64,7 @@ form .pwdField .showBtn{
     border-radius: 0.5em;
     background: lightseagreen;
     padding: 0.3em 0.5em;
+    display: none;
 }
 
 form .bar{
@@ -75,6 +73,7 @@ form .bar{
     justify-content: space-between;
     height: 1em;
     margin: 1em 0;
+    display: none;
 }
 
 form .bar span{
@@ -82,9 +81,45 @@ form .bar span{
     height: 100%;
     background-color: lightslategray;
     border-radius: 1em;
+    position: relative;
 }
 
 form .bar span.medium{
     margin-left: 0.2em;
     margin-right: 0.2em;
+}
+
+form .bar span:before{
+    content: '';
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+}
+
+form .bar span.active.weak:before{
+    background-color:crimson;
+}
+form .bar span.active.medium:before{
+    background-color: orange;
+}
+form .bar span.active.strong:before{
+    background-color:green;
+}
+form .txt{
+    font-size: 0.7em;
+    font-weight: 500;
+    /*display: none;*/
+}
+form .txt.weak{
+    color:crimson;
+}
+form .txt.medium{
+    color: orange;
+}
+form .txt.strong{
+    color:green;
 }
