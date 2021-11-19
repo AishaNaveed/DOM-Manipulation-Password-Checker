@@ -2,13 +2,14 @@ const regExpWeak = /[a-z]/;
 const regExpMed = /\d+/;
 const regExpStr = /.[!,#,@,&,$,%,*,?,_,-,(,)]/;
 const bar = document.querySelector('.bar');
-const input = document.querySelector('input');
+const input = document.querySelector('.pwdInput');
 const weak = document.querySelector('.weak');
 const medium = document.querySelector('.medium');
 const strong = document.querySelector('.strong');
 const txt = document.querySelector('.txt');
+const showBtn = document.querySelector('.showBtn');
 
-input.addEventListener('keyup', function(event){
+input.addEventListener('keyup', function(){
     if(input.value !== ''){
         bar.style.display = 'block';
         bar.style.display = 'flex';
@@ -43,10 +44,21 @@ input.addEventListener('keyup', function(event){
             strong.classList.remove('active');
             txt.classList.remove('strong');
         }
-
+        showBtn.style.display = 'block';
+        showBtn.addEventListener('click', function(){
+            if(input.type === 'password'){
+                input.type = 'text';
+                showBtn.textContent = 'SHOW';
+            }
+            else{
+                input.type = 'password';
+                showBtn.textContent = 'HIDE';
+            }
+        })
     }
     else{
         bar.style.display = 'none';
         txt.style.display = 'none';
+        showBtn.style.display = 'none';
     }
 });

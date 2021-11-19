@@ -72,8 +72,10 @@ form .bar{
     align-items: center;
     justify-content: space-between;
     height: 1em;
+    width: 100%;
+    color: green;
     margin: 1em 0;
-    display: none;
+    /*display: none;*/
 }
 
 form .bar span{
@@ -112,7 +114,7 @@ form .bar span.active.strong:before{
 form .txt{
     font-size: 0.7em;
     font-weight: 500;
-    /*display: none;*/
+ /*   display: none;*/
 }
 form .txt.weak{
     color:crimson;
