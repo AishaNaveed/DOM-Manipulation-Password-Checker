@@ -14,7 +14,7 @@ input.addEventListener('keyup', function () {
     const pwdInput = input.value;
     //const strength = progressBar.value;
 
-    if (pwdInput !== '') {
+    if (pwdInput !== '' && pwdInput.length <= 50) {
         bar.style.display = 'block';
         bar.style.display = 'flex';
         if (pwdInput.length < 8 && pwdInput.match(regExpWeak) || pwdInput.match(regExpMed) || pwdInput.match(regExpStr)) {
@@ -65,7 +65,8 @@ input.addEventListener('keyup', function () {
     }
     else {
         bar.style.display = 'none';
-        txt.style.display = 'none';
+        txt.textContent = 'Your password should have a limit';
+        input.style.display = 'none';
         showBtn.style.display = 'none';
     }
 });
