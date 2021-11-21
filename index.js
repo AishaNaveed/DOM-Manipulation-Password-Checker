@@ -1,72 +1,42 @@
-const regExpWeak = /[a-z]/;
-const regExpMed = /\d+/;
-const regExpStr = /.[!,#,@,&,$,%,*,?,_,-,(,)]/;
-const bar = document.querySelector('.bar');
-const input = document.querySelector('.pwdInput');
-const weak = document.querySelector('.weak');
-const medium = document.querySelector('.medium');
-const strong = document.querySelector('.strong');
-const txt = document.querySelector('.txt');
-const showBtn = document.querySelector('.showBtn');
-const progressBar = document.querySelector('.progressBar');
+const txt = document.getElementById('txt');
+const input = document.getElementById('pwdInput');
+const progressBar = document.getElementById('myprogress');
 
-input.addEventListener('keyup', function () {
-    const pwdInput = input.value;
-    //const strength = progressBar.value;
+let value = progressBar.value;
+let pwdValue = input.value;
 
-    if (pwdInput !== '' && pwdInput.length <= 50) {
-        bar.style.display = 'block';
-        bar.style.display = 'flex';
-        if (pwdInput.length < 8 && pwdInput.match(regExpWeak) || pwdInput.match(regExpMed) || pwdInput.match(regExpStr)) {
-            no = 1;
-        }
-        if ((8 <= pwdInput.length <= 12) && (pwdInput.match(regExpWeak) && pwdInput.match(regExpMed)) || (pwdInput.match(regExpMed) && pwdInput.match(regExpStr)) || (pwdInput.match(regExpWeak) && pwdInput.match(regExpStr))) {
-            no = 2;
-        }
-        if (pwdInput.length >= 12 && pwdInput.match(regExpWeak) && pwdInput.match(regExpMed) && pwdInput.match(regExpStr)) {
-            no = 3;
-        }
-        if (no == 1) {
-            weak.classList.add('active');
-            txt.style.display = 'block';
-            txt.textContent = 'Should be longer';
-            txt.classList.add('weak');
-        }
-        if (no == 2) {
-            medium.classList.add('active');
-            txt.textContent = 'Pretty good';
-            txt.classList.add('medium');
-        }
-        else {
-            medium.classList.remove('active');
-            txt.classList.remove('medium');
-        }
-        if (no == 3) {
-            medium.classList.add('active');
-            strong.classList.add('active');
-            txt.textContent = 'Grrrreat!';
-            txt.classList.add('strong');
-        }
-        else {
-            strong.classList.remove('active');
-            txt.classList.remove('strong');
-        }
-        showBtn.style.display = 'block';
-        showBtn.addEventListener('click', function () {
-            if (input.type === 'password') {
-                input.type = 'text';
-                showBtn.textContent = 'SHOW';
-            }
-            else {
-                input.type = 'password';
-                showBtn.textContent = 'HIDE';
-            }
-        })
+const trying = () => {
+
+    value = Math.min(value + 5, 100);// % 100;
+    progressBar.value = value;
+    document.getElementById("progress-text").innerText = Math.round(value);
+
+    if (value < 40) {
+        txt.style.display = 'block';
+        txt.textContent = 'Should be longer';
+        txt.style.color = 'crimson';
+        progressBar.classList.add('weak');
+    }
+    else if (value >= 40 && value <= 60) {
+        txt.style.display = 'block';
+        txt.textContent = 'Pretty good';
+        txt.style.color = 'orange';
+        progressBar.classList.add('medium');
+    }
+    else if (value > 60 && value < 100) {
+        txt.style.display = 'block';
+        txt.textContent = 'Grrrrreat';
+        txt.style.color = 'green';
+        progressBar.style.backgroundColor = 'green';
+        progressBar.classList.add('strong');
     }
     else {
-        bar.style.display = 'none';
         txt.textContent = 'Your password should have a limit';
         input.style.display = 'none';
-        showBtn.style.display = 'none';
     }
+}
+
+//function is called whenever a key is pressed
+input.addEventListener('keydown', function () {
+    setInterval(trying(), 1000);
 });

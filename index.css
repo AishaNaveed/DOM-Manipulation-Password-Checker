@@ -3,16 +3,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body{
+  }
+  
+  body{
     display: grid;
     height: 100%;
     text-align: center;
     place-items: center;
-}
-
-.container{
+  }
+  
+  .container{
     width: 50%;
     max-width: 80%;
     margin: 2em auto;
@@ -24,112 +24,40 @@ body{
     border: 0.2em solid lightgray;
     font-size: 1.5em;
     line-height: 60%;
-}
-
-.container form{
-    margin:2em 0.5em 1em 0.5em;
-}
-
-form .pwdField{
-    height: 1.5em;
-    width: 100%;
-    display: flex;
-    position: relative;
-}
-
-form .pwdField input{
-    height: 100%;
-    width: 100%;
-    padding-left: 1em;
-    border: 0.2em solid lightgray;
-    border-radius: 0.5em;
-    outline: none;
-    font-size: 0.8em;
-    transition: all 0.3s;
-}
-
-form .pwdField input:focus{
-    border-color: lightseagreen;
-    box-shadow: inset 0 0 0.2em lightsteelblue;
-}
-
-form .pwdField .showBtn{
-    position: absolute;
-    cursor: pointer;
-    right: 1em;
-    transition: translateY(-50%);
-    top: 15%;
-    font-size: 0.8em;
-    font-weight: 500;
-    border-radius: 0.5em;
-    background: lightseagreen;
-    padding: 0.3em 0.5em;
-    display: none;
-}
-
-form .bar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 1em;
-    width: 100%;
-    color: green;
-    margin: 1em 0;
-    /*display: none;*/
-}
-
-form .progressBar{
-    display: flex;
-    align-items: center;
-    height: 1.5em;
-    width: 100%;
-    margin: 1em 0;
-}
+  }
   
-form .bar span{
-    width: 100%;
-    height: 100%;
-    background-color: lightslategray;
-    border-radius: 1em;
-    position: relative;
-}
-
-form .bar span.medium{
-    margin-left: 0.2em;
-    margin-right: 0.2em;
-}
-
-form .bar span:before{
-    content: '';
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 1em;
-}
-
-form .bar span.active.weak:before{
-    background-color:crimson;
-}
-form .bar span.active.medium:before{
-    background-color: orange;
-}
-form .bar span.active.strong:before{
-    background-color:green;
-}
-form .txt{
+  .container form{
+    margin:2em 0.5em 1em 0.5em;
+  }
+  
+  #txt{
     font-size: 0.7em;
     font-weight: 500;
- /*   display: none;*/
-}
-form .txt.weak{
-    color:crimson;
-}
-form .txt.medium{
-    color: orange;
-}
-form .txt.strong{
-    color:green;
-}
+  /*   display: none;*/
+  }
+  
+  #myprogress {
+    border-radius: 0.5em;
+    border: 2px solid black;
+  }
+  /* background: */
+  #myprogress::-webkit-progress-bar {
+    background-color:lightgray; 
+    width: 100%;
+    border-radius: 0.5em;
+    border: 2px solid black;
+  }
+  
+  #myprogress.weak::-webkit-progress-value {
+    background-color: crimson ;
+    border-radius: 0.5em;
+  }
+  #myprogress.medium::-webkit-progress-value {
+    background-color:orange ;
+    border-radius: 0.5em;
+  }
+  #myprogress.strong::-webkit-progress-value {
+    background-color: green ;
+    border-radius: 0.5em;
+  }
+  

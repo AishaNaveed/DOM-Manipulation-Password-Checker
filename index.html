@@ -2,33 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet" />
-    <link rel="stylesheet" href="index.css">
-    <title>Password check</title>
+  <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./index.css" />
 </head>
 
 <body>
-    <main class="container">
-        <h1>Password Checker</h1>
-        <p>(How good is your password?)</p>
-        <form action="#">
-            <article class="pwdField">
-                <input class="pwdInput" type="password" placeholder="enter password">
-                <span class="showBtn">SHOW</span>
-            </article>
-            <section class="bar">
-                <span class="weak"></span>
-                <span class="medium"></span>
-                <span class="strong"></span>
-            </section>
-            <progress class="progressBar" max="100" value="5% "> 0% </progress>
-            <article class="txt"></article>
-        </form>
-    </main>
-    <script src="index.js"></script>
+  <main class="container">
+    <h1>Password</h1>
+    <form>
+      <section>
+        <p><span id="progress-text">0</span>% complete...</p>
+        <progress id="myprogress" value="0" max="100"></progress>
+      </section>
+      <article>
+        <p>Enter password</p>
+        <input id="pwdInput" type="password" placeholder="enter password">
+        <section id="txt"></section>
+      </article>
+    </form>
+  </main>
+
+  <script src="index.js"></script>
 </body>
 
 </html>
